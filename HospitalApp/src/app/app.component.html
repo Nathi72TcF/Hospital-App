@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span [routerLink]="['/admin']" class="paddings">Admin</span>
+    <span class="paddings">Patient</span>
+    <span class="paddings">Doctor</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <img width="300" alt="Angular Logo" src="../assets/images/iStock Converted.png">
+</div>
+
+<router-outlet></router-outlet>

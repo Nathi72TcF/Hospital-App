@@ -1,0 +1,44 @@
+<mat-card class="center">
+    <mat-form-field>
+        <input matInput placeholder="ID" [(ngModel)]="Pid" type="text" maxlength="13" />
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="Pname" type="text" />
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Surname" [(ngModel)]="Psurname" type="text" />
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Age" [(ngModel)]="Page" type="text" maxlength="2" />
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Phone Number" [(ngModel)]="Pphonenumber" type="tel" maxlength="10" />
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <select matNativeControl [(ngModel)]="Pgender" placeholder="Gender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+          </select>
+    </mat-form-field><br>
+
+    <button mat-fab color="primary" (click)="newPatient(Pid, Pname, Psurname, Page, Pphonenumber, Pgender)"><mat-icon>add</mat-icon></button>
+    
+</mat-card>
+
+<mat-card class="center">
+    <p *ngFor = "let sguli of patientArray">
+        {{ sguli.patientId }}
+        {{ sguli.patientName }}
+        {{ sguli.patientSurname }}
+        {{ sguli.patientAge }}
+        {{ sguli.patientPhoneNumber }}
+        {{ sguli.patientGender }}
+        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+        <button mat-fab color="primary" [routerLink]="['/patientdetails', sguli.patientId]"><mat-icon>home</mat-icon></button>
+    </p>
+</mat-card>

@@ -1,0 +1,39 @@
+<!-- <mat-card class="center">
+    <p *ngFor = "let sguli of patientArray">
+        {{ sguli.patientId }}
+        {{ sguli.patientName}}
+        {{ sguli.patientSurname }}
+        {{ sguli.patientAge }}
+        {{ sguli.patientPhoneNumber }}
+        {{ sguli.patientGender }}
+        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+    </p>
+</mat-card> -->
+
+<!-- <mat-card *ngFor = "let sguli of patientArray" class="center">
+    <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ sguli.patientId }}</mat-card-title>
+          <mat-card-subtitle><strong><b>{{ sguli.patientName}} {{ sguli.patientSurname }}</b></strong></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../assets/images/male_patient.png" alt="Patient Picture">
+    <mat-card-content>
+        <h2><strong><b>
+            Age : {{ sguli.patientAge }}<br>
+            Contact Numbers : {{ sguli.patientPhoneNumber }}<br>
+            Gender : {{ sguli.patientGender }}
+        </b></strong></h2>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+</mat-card> -->
+
+<div *ngIf="patientID;" class="center">
+    <h3>{{ patientID }}</h3>
+</div>
+
+<mat-card class="center">
+    <button mat-fab color="primary" [routerLink]="['/admin']" >Back</button>
+</mat-card>
