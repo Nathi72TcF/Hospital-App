@@ -22,6 +22,8 @@ export class PatientComponent implements OnInit {
     this.serviceService.removetask(sguli);
   }
 
+  // new cod efor table
+
   ngOnInit() {
   }
 

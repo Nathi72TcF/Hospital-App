@@ -1,1 +1,96 @@
-<p>patient-appointment works!</p>
+<!-- <mat-card *ngIf="patientID;" class="center">
+    {{ patientID }}
+    {{ patientArray.patientName }}
+    {{ patientArray.patientSurname }}
+    {{ patientArray.patientAge }}
+    {{ patientArray.patientPhoneNumber }}
+    {{ patientArray.patientGender }}
+</mat-card> -->
+
+<!-- Code for Patient Infor -->
+<mat-card *ngIf="patientID;" class="center">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                   <strong><b>
+                        {{ patientID }}
+                        {{ patientArray.patientName }}
+                   </b></strong>
+                </mat-panel-title>
+                <mat-panel-description>
+                   See My Details {{panelOpenState ? 'Yes' : 'No'}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <table mdbTable align="center">
+                    <thead>
+                        <tr>
+                            <th  scope="col"> Patient ID</th>
+                            <th  scope="col"> Patient Name</th>
+                            <th  scope="col"> Patient Surname</th>
+                            <th  scope="col"> Patient Age</th>
+                            <th  scope="col"> Patient Contact Number</th>
+                            <th  scope="col"> Patient Gender</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                     <tr mdbTableCol *ngIf="patientID;">
+                            <td> {{ patientID }} </td>
+                            <td> {{ patientArray.patientName }} </td>
+                            <td> {{ patientArray.patientSurname }} </td>
+                            <td> {{ patientArray.patientAge }} </td>
+                            <td> {{ patientArray.patientPhoneNumber }} </td>
+                            <td> {{ patientArray.patientGender }} </td>
+                          </tr>
+                   
+                    </tbody>
+                </table>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>
+
+<!-- Code to create appointment -->
+<mat-card *ngIf="patientID;" class="center">
+    
+    <mat-form-field>
+        <input matInput placeholder="Date" [(ngModel)]="APDate" type="date" />
+    </mat-form-field><br>
+    
+    <mat-form-field>
+        <textarea matInput [(ngModel)]="APReason" placeholder="Reason" type="textarea" >Type your Reason</textarea>
+    </mat-form-field><br>
+    
+    <mat-form-field>
+        <select matNativeControl [(ngModel)]="APDocter" placeholder="Docter">
+            <option value="Dr Hlophe">Dr Hlophe</option>
+            <option value="Dr Damame">Dr Damame</option>
+            <option value="Dr Mtshali">Dr Mtshali</option>
+            </select>
+    </mat-form-field><br>
+    
+    <button mat-raised-button (click)="appointmentdate(APDate, APreason, APdocter)" color="primary" >Save</button>
+
+</mat-card>
+
+<!-- Display new aapointments -->
+<mat-card>
+    <table mdbTable align="center">    
+        <tbody>
+            <tr mdbTableCol *ngFor="let sguliz of patientArray2">
+                <td>{{ sguliz.apDate }}</td>
+                <td>{{ sguliz.apReason }}</td>
+                <td>{{ sguliz.apDocter }}</td>
+                <td>
+                    <button mat-fab (click)="editappointment(sguliz)" color="warn" ><mat-icon>edit</mat-icon></button>
+                    <button mat-fab (click)="removeappointment(sguliz)" color="warn" ><mat-icon>delete</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</mat-card>
+
+<mat-card class="center">
+    <button mat-fab color="primary" [routerLink]="['/patient']" >Back</button>
+</mat-card>

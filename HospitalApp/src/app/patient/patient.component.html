@@ -1,19 +1,41 @@
-<mat-card *ngFor = "let sguli of patientArray" class="center">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ sguli.patientID }}</mat-card-title>
-        <mat-card-subtitle><strong><b>{{ sguli.patientName }} {{ sguli.patientSurname }}</b></strong></mat-card-subtitle>
-    </mat-card-header>
-        <img mat-card-image src="../../assets/images/male_patient.png" alt="Patient Picture">
-    <mat-card-content>
-        <h2><strong><b>
-        Age : {{ sguli.patientAge }}<br>
-        Contact Numbers : {{ sguli.patientPhoneNumber }}<br>
-        Gender : {{ sguli.patientGender }}
-        </b></strong></h2>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
-        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button>
-    </mat-card-actions>
-</mat-card>
+<!-- <mat-card>
+    <p *ngFor="let sguli of patientArray">
+        {{ sguli.patientId }}
+        {{ sguli.patientName }}
+        {{ sguli.patientSurname }}
+        {{ sguli.patientAge }}
+        {{ sguli.patientPhoneNumber }} 
+        {{ sguli.patientGender }}
+    </p>
+</mat-card> -->
+
+<table mdbTable align="center">
+    <thead>
+        <tr>
+            <th  scope="col"> Patient ID</th>
+            <th  scope="col"> Patient Name</th>
+            <th  scope="col"> Patient Surname</th>
+            <th  scope="col"> Patient Age</th>
+            <th  scope="col"> Patient Contact Number</th>
+            <th  scope="col"> Patient Gender</th>
+            <th  scope="col"> Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+     <tr mdbTableCol *ngFor="let sguli of patientArray">
+            <td> {{ sguli.patientId}} </td>
+            <td> {{ sguli.patientName}} </td>
+            <td> {{ sguli.patientSurname}} </td>
+            <td> {{ sguli.patientAge}} </td>
+            <td> {{ sguli.patientPhoneNumber}} </td>
+            <td> {{ sguli.patientGender}} </td>
+            <td>
+                <button mat-fab color="primary" [routerLink]="['/patientappointment', sguli.patientId]">Appointment</button>
+                <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+                <button mat-fab color="warn" (click)="removetask(sguli)"><mat-icon>delete</mat-icon></button>
+            </td>
+          </tr>
+   
+    </tbody>
+</table>

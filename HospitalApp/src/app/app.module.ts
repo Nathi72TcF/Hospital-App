@@ -8,7 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule,
-  MatButtonModule } from '@angular/material';
+  MatButtonModule, MatTableModule, MatExpansionModule } from '@angular/material';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
@@ -26,7 +26,9 @@ import { PatientAppointmentComponent } from './patient-appointment/patient-appoi
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatExpansionModule,
     MatInputModule,
+    MatTableModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
