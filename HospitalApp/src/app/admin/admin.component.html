@@ -33,12 +33,13 @@
 <mat-card class="center">
     <p *ngFor = "let sguli of patientArray">
         {{ sguli.patientId }}
-        {{ sguli.patientName }}
+        <!-- {{ sguli.patientName }}
         {{ sguli.patientSurname }}
         {{ sguli.patientAge }}
-        {{ sguli.patientPhoneNumber }}
-        {{ sguli.patientGender }}
+        {{ sguli.patientPhoneNumber }} 
+        {{ sguli.patientGender }} -->
         <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
-        <button mat-fab color="primary" [routerLink]="['/patientdetails', sguli.patientId]"><mat-icon>home</mat-icon></button>
+        <button mat-fab color="primary" [routerLink]="['/patientdetails', sguli.patientId]">View</button>
+        <button mat-fab color="warn" (click)="removetask(sguli)"><mat-icon>delete</mat-icon></button>
     </p>
 </mat-card>

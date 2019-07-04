@@ -1,3 +1,4 @@
+import { PatientDetailsComponent } from './../patient-details/patient-details.component';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ServiceService {
 
   patient = [];
+  listPatientz;
 
   Pid: string;
   Pname: string;
@@ -25,15 +27,17 @@ newPatient(Pid, Pname, Psurname, Page, Pphonenumber, Pgender) {
     patientPhoneNumber : Pphonenumber,
     patientGender : Pgender,
   });
+  // this.Pid = '';
   // this.Pname = '';
   // this.Psurname = '';
   // this.Page = '';
   // this.PphoneNumber = '';
+  // this.Pgender = '';
 }
 
  removetask(sguli) {
    const index = this.patient.indexOf(sguli);
-   this.patient.splice(index,1);
+   this.patient.splice(index, 1);
    if (this.patient.length <= 0) {
    }
  }
@@ -61,8 +65,11 @@ newDuties() {
 }
 
 getPatient(patientId) {
-  const index = this.patient.indexOf(patientId);
-  return index;
+  for (let i = 0; i => this.patient.length; i++) {
+    if (this.patient[i].patientId === patientId) {
+      return this.patient[i];
+    }
+  }
 }
 
 }

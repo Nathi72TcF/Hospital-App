@@ -22,6 +22,10 @@ export class AdminComponent implements OnInit {
       this.serviceService.edittask(sguli);
     }
 
+    removetask(sguli) {
+      this.serviceService.removetask(sguli);
+    }
+
   ngOnInit() {
   }
 

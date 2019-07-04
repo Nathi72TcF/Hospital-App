@@ -10,29 +10,38 @@
     </p>
 </mat-card> -->
 
-<!-- <mat-card *ngFor = "let sguli of patientArray" class="center">
+<mat-card *ngIf="patientID;" class="center">
     <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ sguli.patientId }}</mat-card-title>
-          <mat-card-subtitle><strong><b>{{ sguli.patientName}} {{ sguli.patientSurname }}</b></strong></mat-card-subtitle>
+          <mat-card-title>{{ patientID }}</mat-card-title>
+          <mat-card-subtitle><strong><b>{{ patientArray.patientName }} {{ patientArray.patientSurname }}</b></strong></mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="../../assets/images/male_patient.png" alt="Patient Picture">
     <mat-card-content>
         <h2><strong><b>
-            Age : {{ sguli.patientAge }}<br>
-            Contact Numbers : {{ sguli.patientPhoneNumber }}<br>
-            Gender : {{ sguli.patientGender }}
+            Age : {{ patientArray.patientAge }}<br>
+            Contact Numbers : {{ patientArray.patientPhoneNumber }}<br>
+            Gender : {{ patientArray.patientGender }}
         </b></strong></h2>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
-        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button>
+        <!-- <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button> -->
     </mat-card-actions>
-</mat-card> -->
+</mat-card>
 
-<div *ngIf="patientID;" class="center">
+<!-- <div *ngIf="patientID;" class="center">
     <h3>{{ patientID }}</h3>
-</div>
+</div> -->
+
+<!-- <div *ngIf="patientID;">
+    <h3>{{ patientID }}</h3>
+    <h3>{{ patientArray.patientName }}</h3> 
+    <h3>{{ patientArray.patientSurname }}</h3>
+    <h3>{{ patientArray.patientAge }}</h3>
+    <h3>{{ patientArray.patientPhoneNumber }}</h3>
+    <h3>{{ patientArray.patientGender }}</h3>
+</div> -->
 
 <mat-card class="center">
     <button mat-fab color="primary" [routerLink]="['/admin']" >Back</button>

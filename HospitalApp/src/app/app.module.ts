@@ -10,12 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule,
   MatButtonModule } from '@angular/material';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    PatientComponent,
+    PatientAppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,11 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule.forRoot([
+      { path: '', component: PatientDetailsComponent },
+      { path: 'sguli/:patientId', component: AdminComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

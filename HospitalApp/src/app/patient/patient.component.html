@@ -1,0 +1,19 @@
+<mat-card *ngFor = "let sguli of patientArray" class="center">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ sguli.patientID }}</mat-card-title>
+        <mat-card-subtitle><strong><b>{{ sguli.patientName }} {{ sguli.patientSurname }}</b></strong></mat-card-subtitle>
+    </mat-card-header>
+        <img mat-card-image src="../../assets/images/male_patient.png" alt="Patient Picture">
+    <mat-card-content>
+        <h2><strong><b>
+        Age : {{ sguli.patientAge }}<br>
+        Contact Numbers : {{ sguli.patientPhoneNumber }}<br>
+        Gender : {{ sguli.patientGender }}
+        </b></strong></h2>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-fab color="warn" (click)="edittask(sguli)"><mat-icon>edit</mat-icon></button>
+        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+</mat-card>

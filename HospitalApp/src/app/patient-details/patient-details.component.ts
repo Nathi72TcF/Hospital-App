@@ -16,19 +16,24 @@ export class PatientDetailsComponent implements OnInit {
     this.patientArray = this.serviceService.newDuties();
    }
 
-  //  edittask(sguli) {
-  //   this.serviceService.edittask(sguli);
-  // }
+   edittask(sguli) {
+    this.serviceService.edittask(sguli);
+  }
 
-  // removetask(sguli) {
-  //   this.serviceService.removetask(sguli);
-  // }
+  removetask(sguli) {
+    this.serviceService.removetask(sguli);
+  }
+
+  getPatient(patientId) {
+    this.serviceService.getPatient(patientId);
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.patientID = params.get('patientId');
+      this.patientArray = this.serviceService.getPatient(this.patientID);
+      console.log(this.patientArray);
     });
-
     console.log(this.patientID);
   }
 
