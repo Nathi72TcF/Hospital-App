@@ -12,14 +12,17 @@ export class PatientAppointmentComponent implements OnInit {
   patientArray;
   patientArray2;
   patientID;
+  APReason;
+  APDocter;
+  APDate;
 
   constructor(public serviceService: ServiceService, public route: ActivatedRoute) {
     this.patientArray = this.serviceService.newDuties();
     this.patientArray2 = this.serviceService.newDutiezAppoint();
   }
 
-  appointmentdate(APDate, APreason, APdocter) {
-    this.serviceService.appointmentdate(APDate, APreason, APdocter);
+  appointmentdate() {
+    this.serviceService.appointmentdate(this.APDate, this.APReason, this.APDocter, this.patientID);
   }
 
    getPatientz(patientId) {

@@ -42,15 +42,18 @@ newPatient(Pid, Pname, Psurname, Page, Pphonenumber, Pgender) {
   this.Pgender = '';
 }
 
-appointmentdate(APDate, APreason, APdocter) {
+appointmentdate(APDate, APreason, APdocter, patientID) {
   this.appointmentlist.push({
     apDate: APDate,
     apReason: APreason,
     apDocter: APdocter,
+    patientIDs: patientID
   });
   this.APDate = '';
   this.APReason = '';
   this.APDocter = '';
+  alert('New Appointment Saved');
+  console.log(this.appointmentlist);
 }
 
  removetask(sguli) {

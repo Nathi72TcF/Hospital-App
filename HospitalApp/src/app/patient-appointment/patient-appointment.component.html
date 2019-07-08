@@ -8,7 +8,7 @@
 </mat-card> -->
 
 <!-- Code for Patient Infor -->
-<mat-card *ngIf="patientID;" class="center">
+<mat-card class="center">
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
                             (closed)="panelOpenState = false">
@@ -51,7 +51,7 @@
     </mat-accordion>
 </mat-card>
 
-<!-- Code to create appointment -->
+<!-- Code to create appointment  *ngIf="patientID2;" -->
 <mat-card *ngIf="patientID;" class="center">
     
     <mat-form-field>
@@ -70,15 +70,26 @@
             </select>
     </mat-form-field><br>
     
-    <button mat-raised-button (click)="appointmentdate(APDate, APreason, APdocter)" color="primary" >Save</button>
+    <button mat-raised-button (click)="appointmentdate()" color="primary" >Save</button>
 
 </mat-card>
 
 <!-- Display new aapointments -->
+<!-- Change so that it display one patient Appointsments Only -->
 <mat-card>
-    <table mdbTable align="center">    
+    <table mdbTable align="center">   
+        <thead>
+            <tr>
+                <th  scope="col"> Patient ID </th>
+                <th  scope="col"> Date </th>
+                <th  scope="col"> Reason </th>
+                <th  scope="col"> Docter </th>
+                <th  scope="col"> Action </th>
+            </tr>
+        </thead> 
         <tbody>
             <tr mdbTableCol *ngFor="let sguliz of patientArray2">
+                <td>{{ sguliz.patientIDs }}</td>
                 <td>{{ sguliz.apDate }}</td>
                 <td>{{ sguliz.apReason }}</td>
                 <td>{{ sguliz.apDocter }}</td>
