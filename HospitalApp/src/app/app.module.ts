@@ -12,6 +12,7 @@ import { MatCardModule, MatToolbarModule, MatFormFieldModule, MatIconModule, Mat
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PatientAppointmentComponent } from './patient-appointment/patient-appoi
     AdminComponent,
     PatientDetailsComponent,
     PatientComponent,
-    PatientAppointmentComponent
+    PatientAppointmentComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { DoctorComponent } from './doctor/doctor.component';
 import { PatientAppointmentComponent } from './patient-appointment/patient-appointment.component';
 import { PatientComponent } from './patient/patient.component';
 import { AdminComponent } from './admin/admin.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'patientdetails/:patientId', component: PatientDetailsComponent},
   {path: 'patient', component: PatientComponent},
   {path: 'patientAppointment', component: PatientAppointmentComponent},
-  {path: 'patientappointment/:patientId', component: PatientAppointmentComponent}
+  {path: 'patientappointment/:patientId', component: PatientAppointmentComponent},
+  {path: 'doctor', component: DoctorComponent}
 ];
 
 @NgModule({

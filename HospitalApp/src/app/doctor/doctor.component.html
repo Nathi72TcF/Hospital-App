@@ -1,0 +1,38 @@
+<mat-card class="center">
+    <mat-form-field>
+        <input matInput [(ngModel)]="DID" placeholder="Doctor ID" type="text">
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="Dname" placeholder="Name" type="text">
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="Dsurname" placeholder="Surname" type="text">
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="Dspecial" placeholder="Specialisation" type="text">
+    </mat-form-field><br>
+
+    <button mat-fab color="primary" (click)="newDoctor(DID, Dname, Dsurname, Dspecial)"><mat-icon>add</mat-icon></button>
+
+</mat-card>
+
+<mat-card>
+    <p *ngFor="let didi of patientArray">
+        {{ didi.doctorsID }}
+        {{ didi.doctorsName }}
+        {{ didi.doctorsSurname }}
+        {{ didi.doctorsSpecial }}
+    </p>
+</mat-card>
+
+<table mdbTable align="center">
+    <thead>
+        <tr>
+            <th scope="col">Doctors ID</th>
+            
+        </tr>
+    </thead>
+</table>

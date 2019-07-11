@@ -89,7 +89,7 @@
         </thead> 
         <tbody>
             <tr mdbTableCol *ngFor="let sguliz of patientArray2">
-                <td>{{ sguliz.patientIDs }}</td>
+                <td>{{ sguliz.patientID }}</td>
                 <td>{{ sguliz.apDate }}</td>
                 <td>{{ sguliz.apReason }}</td>
                 <td>{{ sguliz.apDocter }}</td>
@@ -105,3 +105,38 @@
 <mat-card class="center">
     <button mat-fab color="primary" [routerLink]="['/patient']" >Back</button>
 </mat-card>
+
+
+
+
+
+<!--  <button mat-raised-button (click)="appointmentdate(patientId, APDate, APReason, APDocter)" color="primary" >Save</button>
+
+</mat-card>
+
+ Display new aapointments 
+<mat-card>
+    <table mdbTable align="center">   
+        <thead>
+            <tr>
+                <th  scope="col"> Patient ID </th>
+                <th  scope="col"> Date </th>
+                <th  scope="col"> Reason </th>
+                <th  scope="col"> Docter </th>
+                <th  scope="col"> Action </th>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr mdbTableCol *ngFor="let sguliz of patientArray2">
+                <td>{{ sguliz.patientIDs }}</td>
+                <td>{{ sguliz.apDate }}</td>
+                <td>{{ sguliz.apReason }}</td>
+                <td>{{ sguliz.apDocter }}</td>
+                <td>
+                    <button mat-fab (click)="editappointment(sguliz)" color="warn" ><mat-icon>edit</mat-icon></button>
+                    <button mat-fab (click)="removeappointment(sguliz)" color="warn" ><mat-icon>delete</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</mat-card> -->

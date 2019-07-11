@@ -23,26 +23,26 @@ export class PatientAppointmentComponent implements OnInit {
 
   appointmentdate() {
     this.serviceService.appointmentdate(this.APDate, this.APReason, this.APDocter, this.patientID);
+    this.patientArray2 = this.serviceService.viewAppointment(this.patientID);
   }
 
    getPatientz(patientId) {
     this.serviceService.getPatientz(patientId);
   }
 
-  removeappointment(sguliz) {
-    this.serviceService.removeappointment(sguliz);
-  }
-
-  editappointment(sguliz) {
-    this.serviceService.editappointment(sguliz);
-  }
-
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.patientID = params.get('patientId');
-      this.patientArray = this.serviceService.getPatientz(this.patientID);
-      console.log(this.patientArray);
-    });
+      this.patientArray2 = this.serviceService.viewAppointment(this.patientID);
+      console.log(this.patientArray2);
+  });
+    console.log(this.patientID);
+
+    this.route.paramMap.subscribe(params => {
+    this.patientID = params.get('patientId');
+    this.patientArray = this.serviceService.getPatientz(this.patientID);
+    console.log(this.patientArray);
+  });
     console.log(this.patientID);
   }
 

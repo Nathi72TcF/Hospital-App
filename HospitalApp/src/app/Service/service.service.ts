@@ -1,6 +1,8 @@
 import { PatientAppointmentComponent } from './../patient-appointment/patient-appointment.component';
 import { PatientDetailsComponent } from './../patient-details/patient-details.component';
 import { Injectable } from '@angular/core';
+import { DIR_DOCUMENT } from '@angular/cdk/bidi';
+import { getLocaleDayNames } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class ServiceService {
 
   patient = [];
+  doctors = [];
   appointmentlist = [];
 
   // Add Patient
@@ -22,6 +25,12 @@ export class ServiceService {
   APDate: string;
   APReason: string;
   APDocter: string;
+
+  // Add Doctor
+  DID: string;
+  Dname: string;
+  Dsurname: string;
+  Dspecial: string;
 
   constructor() { }
 
@@ -40,20 +49,32 @@ newPatient(Pid, Pname, Psurname, Page, Pphonenumber, Pgender) {
   this.Page = '';
   this.PphoneNumber = '';
   this.Pgender = '';
+  console.log(this.patient);
 }
 
-appointmentdate(APDate, APreason, APdocter, patientID) {
+appointmentdate(APDate, APReason, APDocter, patientId) {
   this.appointmentlist.push({
     apDate: APDate,
-    apReason: APreason,
-    apDocter: APdocter,
-    patientIDs: patientID
+    apReason: APReason,
+    apDocter: APDocter,
+    patientID: patientId
   });
-  this.APDate = '';
-  this.APReason = '';
-  this.APDocter = '';
+  // this.APDate = '';
+  // this.APReason = '';
+  // this.APDocter = '';
   alert('New Appointment Saved');
   console.log(this.appointmentlist);
+}
+
+newDoctor(DID, Dname, Dsurname, Dspecial) {
+  this.doctors.push({
+    doctorsID: DID,
+    doctorsName: Dname,
+    doctorsSurname: Dsurname,
+    doctorsSpecial: Dspecial
+  });
+  alert('New Doctor Saved');
+  console.log(this.doctors);
 }
 
  removetask(sguli) {
@@ -61,6 +82,7 @@ appointmentdate(APDate, APreason, APdocter, patientID) {
    this.patient.splice(index, 1);
    if (this.patient.length <= 0) {
    }
+   console.log(this.patient);
  }
 
  removeappointment(sguliz) {
@@ -68,6 +90,7 @@ appointmentdate(APDate, APreason, APdocter, patientID) {
    this.appointmentlist.splice(index, 1);
    if (this.appointmentlist.length <= 0) {
    }
+   console.log(this.appointmentlist);
  }
 
  edittask(sguli) {
@@ -116,12 +139,27 @@ getPatientz(patientId) {
   }
 }
 
+viewAppointment(patientId) {
+  const Appointment = [];
+  this.appointmentlist.forEach(sguliz => {
+    if (sguliz.patientID === patientId) {
+      Appointment.push(sguliz);
+      console.log(sguliz);
+    }
+  });
+  return Appointment;
+}
+
 newDuties() {
   return this.patient;
 }
 
 newDutiezAppoint() {
   return this.appointmentlist;
+}
+
+newDoctorzz() {
+  return this.doctors;
 }
 
 }
